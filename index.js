@@ -255,10 +255,17 @@ data=[
   filter.forEach(x=>{
     const card=document.createElement("div")
     card.id="card"
+          function generateStars(rating) {
+      let stars = '';
+      for (let i = 0; i < Math.floor(rating); i++) {
+        stars += '⭐';
+      }
+      return stars;
+    }
   card.innerHTML=`
   <img src=${x.image} width=100 id="img"/>
-  <p>${x.title}</p>
-  <p>Rating: ${x.rating.rate}</p>
+<p><strong>${x.title}</strong></p>
+   <p><strong>Rating:</strong> ${generateStars(x.rating.rate)}</p>
   <p><span>${x.price}$</span></p>
   
   <div id="btns">
